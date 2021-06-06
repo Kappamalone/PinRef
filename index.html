@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/styles.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
+    <title>PureRef Pinterest Clone</title>
+</head>
+<body>
+    <!---
+    Things to do:
+        -Make the input post the link to the server and get a response of the urls
+        -Transition to canvas
+    --->
+    <main>
+        <div id="removable">
+            <h1 class="heading">PinRef</h1>
+            <h3 class="sub">Enter the URL of a Pinterest Board and download the images onto a canvas as a reference for your art pieces! </h3>
+            <div class="submit">
+                <input type="text" id="input" placeholder="https://www.pinterest.com/..." autocomplete="off" autocapitalize="off">
+            </div>
+        </div>
+    </main>
+    <script src="dist/client.min.js"></script>
+</body>
+</html>

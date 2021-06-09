@@ -1,67 +1,75 @@
-let success = false; 
+//TODO: Add a loading icon until response is sent
+const input = document.getElementById('input'); //The input field
+const removable = document.getElementById('removable'); //All the initial elements to be removed for canvas
+const error = document.getElementById('error'); //Error popup
+
 
 function validateURLInput(input) {
-    return input.includes("https://www.pinterest.com/") 
+    return input.includes('https://www.pinterest.com/');
 }
 
-//TODO: Add a loading icon until response is sent
-const input = document.getElementById("input");
-input.addEventListener("keyup", function(event) {
-    if (event.key === "Enter") { 
-        if (validateURLInput(input.value)) {
-            //POST pinterest board url to recieve image urls back
-            fetch("/scraper", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ "url": input.value })
-            })
-            .then(response => response.json())
-            .then(data => {
-                links = data["links"]
-                if (links.length == 0) {
-                    //Incorrect Board URL/Empty board
-                    console.log("Error"); //TODO: Have a popup to visually show this
-                    success = false;
-                } else {
-                    //Images links successfully recieved
-                    console.log("Success!");
-                    success = true;
-                }
+async function fetchURL(value) {
+    let success = false;
+    let request = await fetch('/scraper', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url: input.value }),
+    });
 
-                if (success) {
-                    let node = document.getElementById("removable");
-                    node.remove();
-                    startup();
-                }
-            })
-            .catch((error) => {
-                console.error("Error: ",error);
-            })
-        }
+    let response = await request.json();
+    links = response['links'];
+
+    if (links.length > 0) {
+        success = true;
     }
-});
+
+    //If successful, then prepare canvas
+    return success;
+}
 
 //Starts all p5 processes, loads images, and resizes canvas
-function startup(){
+function startup() {
     started = true;
     resizeCanvas(windowWidth, windowHeight);
-    
-    for (let i = 0; i < links.length; i++){
-        load_image(links[i],0,0);
+
+    for (let i = 0; i < links.length; i++) {
+        load_image(links[i], 0, 0);
     }
 
     //Let images load, then sort them based on their width and cascade them across screen
     setTimeout(() => {
-        drawItems.sort((a,b) => {
+        drawItems.sort((a, b) => {
             if (a.originalWidth > b.originalWidth) return 1;
             if (a.originalWidth < b.originalWidth) return -1;
             return 0;
-        })
+        });
 
-        for (let i = 0; i < drawItems.length; i++){
+        for (let i = 0; i < drawItems.length; i++) {
             drawItems[i].x = i * 100;
             drawItems[i].xr = drawItems[i].x + drawItems[i].originalWidth;
         }
-        
     }, 50);
 }
+
+
+input.addEventListener('keyup', function (event) {
+    if (event.key === 'Enter') {
+        if (!validateURLInput(input.value)) {
+            //POST pinterest board url to recieve image urls back
+            fetchURL(input.value)
+                .then((success) => {
+                    if (success) {
+                        //If successful, transition to canvas
+                        removable.remove();
+                        startup();
+                    } else {
+                        //Else, display error
+                        error.style.visibility = 'visible';
+                    }
+                })
+                .catch((e) => {
+                    console.log('Error occured: ' + e);
+                });
+        }
+    }
+});

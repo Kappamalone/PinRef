@@ -1,0 +1,52 @@
+/* Index.html */
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    &__heading {
+        color: var(--primary-color);
+        font-size: 8rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+    }
+
+    &__sub {
+        font-size: 2rem;
+        padding: 0 2rem;
+        margin-bottom: 3rem;
+
+        &--primary {
+            color: var(--secondary-color);
+        }
+
+        &--error {
+            color: var(--secondary-error-color);
+            visibility: hidden;
+        }
+    }
+
+    &__textinput {
+        margin-bottom: 3rem;
+
+        &__style {
+            width: 50vw;
+            max-width: 50rem;
+            min-width: 21rem;
+            margin-right: 4rem;
+            margin-left: 4rem;
+            border-radius: 40px;
+            padding: 20px;
+            font-size: 1.5rem;
+
+            &:focus {
+                outline-width: 0;
+            }
+        }
+    }
+}

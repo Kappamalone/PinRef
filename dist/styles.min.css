@@ -1,65 +1,96 @@
 :root {
-    --header-text-color: #E85D75;
-    --sub-text-color: #F0E7D8;
-    --main-bg-color: #36393B;
-    --base-font: apple-system, BlinkMacSystemFont, "Source Code Pro", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-}
-
-.p5Canvas {
-    position: absolute;
-    top:0;
-    left:0;
-}
+  --primary-color: #e85d75;
+  --secondary-color: #f0e7d8;
+  --secondary-error-color: #FF6B6C;
+  --background-color: #36393b;
+  font-family: apple-system, BlinkMacSystemFont, 'Source Code Pro', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; }
 
 body {
-    background-color: var(--main-bg-color);
-    margin:0;
-    overflow:hidden;
-}
+  background-color: var(--background-color);
+  margin: 0;
+  overflow: hidden; }
 
-main {
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
 
-.heading {
-    color: var(--header-text-color);
-    text-align: center;
-    font-family: var(--base-font);
-    font-size: 5rem;
-    margin-bottom: 1rem;
-}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
 
-.sub {
-    color: var(--sub-text-color);
-    text-align: center;
-    padding-right: 4rem;
-    padding-left: 4rem;
-    margin-bottom: 3rem;
-    font-family: var(--base-font);
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Index.html */
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; }
+  .main__heading {
+    color: var(--primary-color);
+    font-size: 8rem;
+    font-weight: bold;
+    margin-bottom: 2rem; }
+  .main__sub {
     font-size: 2rem;
-}
+    padding: 0 2rem;
+    margin-bottom: 3rem; }
+    .main__sub--primary {
+      color: var(--secondary-color); }
+    .main__sub--error {
+      color: var(--secondary-error-color);
+      visibility: hidden; }
+  .main__textinput {
+    margin-bottom: 3rem; }
+    .main__textinput__style {
+      width: 50vw;
+      max-width: 50rem;
+      min-width: 21rem;
+      margin-right: 4rem;
+      margin-left: 4rem;
+      border-radius: 40px;
+      padding: 20px;
+      font-size: 1.5rem; }
+      .main__textinput__style:focus {
+        outline-width: 0; }
 
-.submit {
-    display: flex;
-    justify-content: center;
-}
-
-#input {
-    width: 50vw;
-    max-width: 50rem;
-    min-width: 21rem;
-    margin-right: 4rem;
-    margin-left: 4rem;
-    border-radius: 40px;
-    padding: 20px;
-    font-family: var(--base-font);
-    font-size: 1.5rem;
-}
-
-#input:focus {
-    outline-width: 0;
-}
+/*Hack to hide canvas*/
+.p5Canvas {
+  position: absolute;
+  top: 0;
+  left: 0; }

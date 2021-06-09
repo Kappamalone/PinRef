@@ -1,34 +1,36 @@
 {
-  "name": "pinref",
-  "version": "1.0.0",
-  "description": "A small web app that pulls images from a pinterest board and gives you a pureref-esque experience",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Kappamalone/PinRef.git"
-  },
-  "author": "Uzman Zawahir",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Kappamalone/PinRef/issues"
-  },
-  "homepage": "https://github.com/Kappamalone/PinRef#readme",
-  "devDependencies": {
-    "browser-sync": "^2.26.14",
-    "gulp": "^4.0.2",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-if": "^3.0.0",
-    "gulp-nodemon": "^2.5.0",
-    "gulp-typescript": "^6.0.0-alpha.1",
-    "gulp-uglify": "^3.0.2",
-    "nodemon": "^2.0.7"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "python-shell": "^3.0.0"
-  }
+    "name": "pinref",
+    "version": "1.0.0",
+    "description": "A small web app that pulls images from a pinterest board and gives you a pureref-esque experience",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Kappamalone/PinRef.git"
+    },
+    "author": "Uzman Zawahir",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Kappamalone/PinRef/issues"
+    },
+    "homepage": "https://github.com/Kappamalone/PinRef#readme",
+    "devDependencies": {
+        "browser-sync": "^2.26.14",
+        "gulp": "^4.0.2",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-if": "^3.0.0",
+        "gulp-nodemon": "^2.5.0",
+        "gulp-prettier": "^3.0.0",
+        "gulp-sass": "^4.1.0",
+        "gulp-typescript": "^6.0.0-alpha.1",
+        "gulp-uglify": "^3.0.2",
+        "nodemon": "^2.0.7"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "python-shell": "^3.0.0"
+    }
 }

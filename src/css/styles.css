@@ -1,24 +1,26 @@
 :root {
-    --header-text-color: #E85D75;
-    --sub-text-color: #F0E7D8;
-    --main-bg-color: #36393B;
-    --base-font: apple-system, BlinkMacSystemFont, "Source Code Pro", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    --header-text-color: #e85d75;
+    --sub-text-color: #f0e7d8;
+    --main-bg-color: #36393b;
+    --base-font: apple-system, BlinkMacSystemFont, 'Source Code Pro', Roboto,
+        Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
 }
 
 .p5Canvas {
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
 }
 
 body {
     background-color: var(--main-bg-color);
-    margin:0;
-    overflow:hidden;
+    margin: 0;
+    overflow: hidden;
 }
 
 main {
-    height: 70vh;
+    margin-top: 30vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,4 +64,15 @@ main {
 
 #input:focus {
     outline-width: 0;
+}
+
+.error {
+    visibility: hidden;
+    color: red;
+    text-align: center;
+    padding-right: 4rem;
+    padding-left: 4rem;
+    margin-bottom: 3rem;
+    font-family: var(--base-font);
+    font-size: 1.5rem;
 }

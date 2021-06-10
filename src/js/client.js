@@ -52,8 +52,9 @@ function startup() {
 
 input.addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
-        if (!validateURLInput(input.value)) {
+        if (validateURLInput(input.value)) {
             //POST pinterest board url to recieve image urls back
+            console.log("Enter!")
             fetchURL(input.value)
                 .then((success) => {
                     if (success) {

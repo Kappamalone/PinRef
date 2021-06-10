@@ -24,7 +24,6 @@ function compileSASS() {
         .pipe(dest('dist'));
 }
 
-
 function nodemonServe() {
     var started = false;
     return nodemon({

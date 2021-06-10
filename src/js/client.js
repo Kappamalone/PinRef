@@ -3,7 +3,6 @@ const input = document.getElementById('input'); //The input field
 const removable = document.getElementById('removable'); //All the initial elements to be removed for canvas
 const error = document.getElementById('error'); //Error popup
 
-
 function validateURLInput(input) {
     return input.includes('https://www.pinterest.com/');
 }
@@ -50,7 +49,6 @@ function startup() {
         }
     }, 50);
 }
-
 
 input.addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {

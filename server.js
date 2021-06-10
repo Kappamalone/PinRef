@@ -14,15 +14,18 @@ app.get('/', function (req, res) {
 //An endpoint to scrape pinterest image urls and returns them to the client
 //TODO: Rewrite the scraper in javascript to improve performance
 app.post('/scraper', function (req, res) {
-    res.send({ links: ['1', '2', '3'] });
-    //     let boardURL = req.body["url"];
-    //     PythonShell.run("src/scraper/scraper.py", {pythonPath: "venv/Scripts/python.exe",args: [boardURL]}, function (err, results) {
-    //         if (err) {
-    //             throw err;
-    //         }
+    let boardURL = req.body['url'];
+    PythonShell.run(
+        'src/scraper/scraper.py',
+        { pythonPath: 'venv/Scripts/python.exe', args: [boardURL] },
+        function (err, results) {
+            if (err) {
+                throw err;
+            }
 
-    //         res.json({"links": results});
-    //     })
+            res.json({ links: results });
+        },
+    );
 });
 
 app.listen(port, function () {
